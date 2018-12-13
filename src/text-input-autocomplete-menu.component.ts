@@ -16,7 +16,7 @@ import { Subject } from 'rxjs';
         <a
           href="javascript:;"
           (click)="selectChoice.next(choice)">
-          {{ choice }}
+          {{ choice[labelKey] ?  choice[labelKey] : choice }}
         </a>
       </li>
     </ul>
@@ -39,6 +39,7 @@ export class TextInputAutocompleteMenuComponent {
   searchText: string;
   choiceLoadError: any;
   choiceLoading = false;
+  labelKey = 'name';
   private _choices: any[];
   trackById = (index: number, choice: any) =>
     typeof choice.id !== 'undefined' ? choice.id : choice;

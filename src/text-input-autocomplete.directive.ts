@@ -61,16 +61,17 @@ export class TextInputAutocompleteDirective implements OnDestroy {
   @Output() choiceSelected = new EventEmitter<ChoiceSelectedEvent>();
 
   /**
-   * A function that accepts a search string and returns an array of choices. Can also return a promise.
-   */
-  @Input() findChoices: (searchText: string) => any[] | Promise<any[]>;
-
-  /**
    * A function that formats the selected choice once selected.
    */
   @Input() getChoiceLabel: (choice: any) => string = choice => choice;
 
   /* tslint:disable member-ordering */
+  @Input() valueKey: string = 'id';
+
+  @Input() labelKey: string = 'name';
+
+  @Input() choices: any[];
+
   private menu:
     | {
         component: ComponentRef<TextInputAutocompleteMenuComponent>;
@@ -87,6 +88,11 @@ export class TextInputAutocompleteDirective implements OnDestroy {
     private injector: Injector,
     private elm: ElementRef
   ) {}
+
+  findChoices(searchText: string) {
+    return this.choices.filter(c =>
+      c[this.labelKey].toLowerCase().includes(searchText.toLowerCase()))
+  }
 
   @HostListener('keypress', ['$event.key'])
   onKeypress(key: string) {
@@ -114,6 +120,7 @@ export class TextInputAutocompleteDirective implements OnDestroy {
           } else {
             this.menu.component.instance.searchText = searchText;
             this.menu.component.instance.choices = [];
+            this.menu.component.instance.labelKey = this.labelKey;
             this.menu.component.instance.choiceLoadError = undefined;
             this.menu.component.instance.choiceLoading = true;
             this.menu.component.changeDetectorRef.detectChanges();
