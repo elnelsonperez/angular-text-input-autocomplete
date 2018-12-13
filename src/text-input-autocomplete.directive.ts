@@ -90,8 +90,11 @@ export class TextInputAutocompleteDirective implements OnDestroy {
   ) {}
 
   findChoices(searchText: string) {
-    return this.choices.filter(c =>
-      c[this.labelKey].toLowerCase().includes(searchText.toLowerCase()))
+    return this.choices.filter(
+      c =>
+        c[this.labelKey].toLowerCase().includes(searchText.toLowerCase()) ||
+        c[this.valueKey] == searchText
+    );
   }
 
   @HostListener('keypress', ['$event.key'])

@@ -63,7 +63,7 @@ export declare class TextInputAutocompleteDirective implements OnDestroy {
   onKeypress(key: string): void;
   onChange(value: string): void;
   onBlur(): void;
-  private showMenu;
-  private hideMenu;
+  private showMenu();
+  private hideMenu();
   ngOnDestroy(): void;
 }

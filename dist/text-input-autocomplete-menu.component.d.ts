@@ -18,5 +18,5 @@ export declare class TextInputAutocompleteMenuComponent {
   onArrowDown(event: KeyboardEvent): void;
   onArrowUp(event: KeyboardEvent): void;
   onEnter(event: KeyboardEvent): void;
-  private scrollToChoice;
+  private scrollToChoice(index);
 }
