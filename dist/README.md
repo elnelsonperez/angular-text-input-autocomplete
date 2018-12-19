@@ -14,11 +14,11 @@ https://mattlewis92.github.io/angular-text-input-autocomplete/
 
 ## Table of contents
 
-- [About](#about)
-- [Installation](#installation)
-- [Documentation](#documentation)
-- [Development](#development)
-- [License](#license)
+* [About](#about)
+* [Installation](#installation)
+* [Documentation](#documentation)
+* [Development](#development)
+* [License](#license)
 
 ## About
 
@@ -69,8 +69,7 @@ import { Component } from '@angular/core';
         [(ngModel)]="formControlValue"
         mwlTextInputAutocomplete
         [findChoices]="findChoices"
-        [getChoiceLabel]="getChoiceLabel"
-      >
+        [getChoiceLabel]="getChoiceLabel">
       </textarea>
     </mwl-text-input-autocomplete-container>
   `
@@ -114,8 +113,8 @@ https://mattlewis92.github.io/angular-text-input-autocomplete/docs/
 
 ### Prepare your environment
 
-- Install [Node.js](http://nodejs.org/) and NPM
-- Install local dev dependencies: `npm install` while current directory is this repo
+* Install [Node.js](http://nodejs.org/) and NPM
+* Install local dev dependencies: `npm install` while current directory is this repo
 
 ### Development server
 
@@ -127,7 +126,7 @@ Run `npm test` to run tests once or `npm run test:watch` to continually run test
 
 ### Release
 
-- Bump the version in package.json (once the module hits 1.0 this will become automatic)
+* Bump the version in package.json (once the module hits 1.0 this will become automatic)
 
 ```bash
 npm run release

@@ -1,1 +1,2 @@
-export declare class TextInputAutocompleteContainerComponent {}
+export declare class TextInputAutocompleteContainerComponent {
+}

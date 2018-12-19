@@ -1,1 +1,2 @@
-export declare class TextInputAutocompleteModule {}
+export declare class TextInputAutocompleteModule {
+}
